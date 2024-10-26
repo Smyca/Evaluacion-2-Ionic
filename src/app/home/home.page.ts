@@ -12,11 +12,24 @@ export class HomePage implements OnInit{
 
   ngOnInit() {
 
-    this.apiService.obtenerInfo().subscribe((Root)=>{
-      console.log(Root)
-      this.items=Root
+    
 
-    localStorage.setItem('API', JSON.stringify(this.items))
+    this.apiService.obtenerInfo().subscribe((Root)=>{
+      //Si no existe en local storage
+      if(localStorage.getItem('API')){
+        console.log('Api ya existe en local Storage')
+        this.items=Root
+      }else{
+        //Si existe en local storage
+        console.log('Api no existe en local Storage')
+        
+        console.log(Root)
+        this.items=Root
+  
+        localStorage.setItem('API', JSON.stringify(this.items))
+
+      }
+      
   
   });
     
