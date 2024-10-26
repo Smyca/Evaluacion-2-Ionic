@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Header</ion-title>
+    <ion-title>Informacion API</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -8,13 +8,13 @@
 
 <ion-content class="ion-padding">
 
-  @for (item of items; track item.id){
+  @for (dato of datos; track dato.id){
   
     <ion-card>
       <ion-card-header>
-        <ion-card-subtitle>{{item.id}}</ion-card-subtitle>
-        <ion-card-title>{{item.title}}</ion-card-title>
-        <ion-card-subtitle>{{item.body}}</ion-card-subtitle>
+        <ion-card-subtitle>{{dato.id}}</ion-card-subtitle>
+        <ion-card-title>{{dato.title}}</ion-card-title>
+        <ion-card-subtitle>{{dato.body}}</ion-card-subtitle>
       </ion-card-header>
     
       

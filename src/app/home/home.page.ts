@@ -7,26 +7,23 @@ import { APIService } from '../services/api.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit{
-  items:any[]=[]
+  datos:any[]=[]
   constructor(private apiService: APIService) {}
 
   ngOnInit() {
 
-    
-
-    this.apiService.obtenerInfo().subscribe((Root)=>{
-      //Si no existe en local storage
+    this.apiService.obtenerInfo().subscribe((Info)=>{
+      //Si los datos existen en local storage
       if(localStorage.getItem('API')){
-        console.log('Api ya existe en local Storage')
-        this.items=Root
+        console.log('Datos extraidos desde LocalStorage')
+        console.log(Info)
+        this.datos=Info
       }else{
-        //Si existe en local storage
-        console.log('Api no existe en local Storage')
-        
-        console.log(Root)
-        this.items=Root
-  
-        localStorage.setItem('API', JSON.stringify(this.items))
+        //Si los datos no existen en local storage, se extraen desde API
+        console.log('Datos extraidos desde API')
+        console.log(Info)
+        this.datos=Info
+        localStorage.setItem('API', JSON.stringify(this.datos))
 
       }
       
